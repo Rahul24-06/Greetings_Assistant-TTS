@@ -1,29 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# import random
-
-# say = ['bye', 'see you later', 'good bye', 'bye now']
-# result_sentence = random.choice(say)
-# current_session_id = intentMessage.session_id
-# hermes.publish_end_session(current_session_id, result_sentence)
-
+import random
 from hermes_python.hermes import Hermes
 
 MQTT_IP_ADDR = "localhost"
 MQTT_PORT = 1883
 MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
 
+hi_choice = ['hello', 'howdy', 'hi', 'greetings']
+bye_choice = ['bye', 'see you later', 'good bye', 'bye now']
 
 def intent_received(hermes, intent_message):
     sentence = ''
 
     if intent_message.intent.intent_name == 'SirBuildsALot7:hello':
-        print('hi sir')
-        sentence += 'hi sir'
+        say = random.choice(hi_choice)
+		print(say)
+        sentence = say
     elif intent_message.intent.intent_name == 'SirBuildsALot7:bye':
-        print('bye master')
-        sentence += 'bye master'
+        say = random.choice(bye_choice)
+		print(say)
+        sentence = say
     else:
         return
 
