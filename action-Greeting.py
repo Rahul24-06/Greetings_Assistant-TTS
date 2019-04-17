@@ -11,16 +11,16 @@ MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
 def intent_received(hermes, intent_message):
     sentence = ''
 
-    if intent_message.intent.intent_name == 'hi':
+    if intent_message.intent.intent_name == 'SirBuildsALot:hello':
         print('hi sir')
         sentence += 'hi sir'
-    elif intent_message.intent.intent_name == 'bye':
+    elif intent_message.intent.intent_name == 'SirBuildsALot:bye':
         print('bye master')
         sentence += 'bye master'
     else:
         return
 
-    hi_slot = intent_message.slots.hi.first()
+    hi_slot = intent_message.slots.hello.first()
     bye_slot = intent_message.slots.bye.first()
     
 
