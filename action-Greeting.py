@@ -28,7 +28,7 @@ def intent_received(hermes, intent_message):
     hi_slot = intent_message.slots.hello.first()
     bye_slot = intent_message.slots.bye.first()
     
-
+    sentence += 'Rahul'
     hermes.publish_end_session(intent_message.session_id, sentence)
 
 
