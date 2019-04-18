@@ -23,7 +23,7 @@ def intent_received(hermes, intent_message):
                 print(say)
         else:
                 return
-        sentence += say + "Rahul"
+        sentence += say + " Rahul"
 #sentence += 'Rahul'
         hermes.publish_end_session(intent_message.session_id, sentence)
 
