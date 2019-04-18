@@ -1,5 +1,3 @@
-  GNU nano 2.7.4            File: action-Greeting.py
-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
