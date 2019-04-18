@@ -1,3 +1,5 @@
+  GNU nano 2.7.4            File: action-Greeting.py
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -12,22 +14,18 @@ hi_choice = ['hello', 'howdy', 'hi', 'greetings']
 bye_choice = ['bye', 'see you later', 'good bye', 'bye now']
 
 def intent_received(hermes, intent_message):
-sentence = ''
-
-if intent_message.intent.intent_name == 'SirBuildsALot7:hello':
-	say = random.choice(hi_choice) + 'Rahul'
-	print(say)
-	sentence += say
-elif intent_message.intent.intent_name == 'SirBuildsALot7:bye':
-	say = random.choice(bye_choice) + 'Rahul'
-	print(say)
-	sentence += say
-else:
-	return
-
+        sentence = ''
+        if intent_message.intent.intent_name == 'SirBuildsALot7:hello':
+                say = random.choice(hi_choice)
+                print(say)
+        elif intent_message.intent.intent_name == 'SirBuildsALot7:bye':
+                say = random.choice(bye_choice)
+                print(say)
+        else:
+                return
+        sentence += say + "Rahul"
 #sentence += 'Rahul'
-hermes.publish_end_session(intent_message.session_id, sentence)
-
+        hermes.publish_end_session(intent_message.session_id, sentence)
 
 with Hermes(MQTT_ADDR) as h:
-h.subscribe_intents(intent_received).start()
+        h.subscribe_intents(intent_received).start()
