@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import random
+
 from hermes_python.hermes import Hermes
 
 MQTT_IP_ADDR = "localhost"
@@ -20,8 +20,8 @@ def intent_received(hermes, intent_message):
     else:
         return
 
-    hi_slot = intent_message.slots.hello.first()
-    bye_slot = intent_message.slots.bye.first()
+#    hi_slot = intent_message.slots.hello.first()
+#    bye_slot = intent_message.slots.bye.first()
     
     hermes.publish_end_session(intent_message.session_id, sentence)
 
